@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.lucee</groupId>
   <artifactId>launchdarkly-redis</artifactId>
-  <version>2.0.0.0001L</version>
+  <version>3.0.0.741</version>
   <name>launchdarkly-redis</name>
   <packaging>bundle</packaging>
 
@@ -91,10 +91,12 @@
                  <artifactItem>
                    <groupId>com.launchdarkly</groupId>
                     <artifactId>launchdarkly-java-server-sdk-redis-store</artifactId>
-                    <version>2.0.0</version>
+                    <version>3.0.0</version>
+                    <!-- <classifier></classifier> -->
                    <type>jar</type>
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                   <includes>**/*.*</includes> 
                  </artifactItem>
                </artifactItems>
                <overWriteReleases>true</overWriteReleases>
@@ -115,13 +117,15 @@
             <Bundle-SymbolicName>org.lucee.launchdarkly-redis</Bundle-SymbolicName>
             <Bundle-Description>OSGI version of jar ${project.name}</Bundle-Description>
             <Export-Package>*,META-INF.services.*</Export-Package>
-            <Require-Bundle>org.lucee.launchdarkly;bundle-version=5.10.8,redis.clients.jedis;bundle-version=2.9.0</Require-Bundle>
+            <Require-Bundle>org.lucee.launchdarkly;bundle-version=7.4.1,redis.clients.jedis;bundle-version=2.9.0</Require-Bundle>
             <!-- <Require-Bundle-Fragment></Require-Bundle-Fragment> -->
             <!-- <Import-Package>*</Import-Package> -->
             <!-- <DynamicImport-Package>*</DynamicImport-Package> -->
             <!-- <Fragment-Host></Fragment-Host> -->
             <Manifest-Version>1.0</Manifest-Version>
             <!-- Embed Dependency -->
+            <!-- <_noee></_noee> -->
+            <!-- <Include-Resource>@${project.build.outputDirectory}</Include-Resource> -->
           </instructions>
         </configuration>
         <extensions>true</extensions>
